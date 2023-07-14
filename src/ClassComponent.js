@@ -15,6 +15,7 @@ class ClassComponents extends Component {
     }
     componentDidMount() {
         console.log("Componente montato");
+        //this.setState({ counter: 10 });
     }
 
     //$ Metodi di Aggiornamento
