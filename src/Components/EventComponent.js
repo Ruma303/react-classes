@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-
 class EventComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = { // Inizializzare lo stato del componente
+        this.state = {
             clickCount: 0
         };
-
-        // Il binding del contesto per l'evento handleClick
-        // Questo assicura che this all'interno della funzione handleClick, si riferisca all'istanza del componente
+        //$ Binding esplicito
         this.handleClick = this.handleClick.bind(this);
     }
-
-    // Gestore dell'evento per l'evento onClick
+    //$ Funzione tradizionale coon binding
     handleClick(event) {
         this.setState(prevState => ({
             clickCount: prevState.clickCount + 1
@@ -22,6 +18,42 @@ class EventComponent extends Component {
     render() {
         return (
             <div>
+                <h2 onMouseOver={(event) =>
+                    console.log('Evento scatenato su', event.target)}
+                    >
+                    Event Handler
+                </h2>
+                <button onClick={this.handleClick}>
+                    Cliccato {this.state.clickCount} volte!
+                </button>
+                {console.log(this)}
+            </div>
+        );
+    }
+}
+export default EventComponent;
+
+
+/* import React, { Component } from 'react';
+
+class EventComponent extends Component {
+    state = {
+        clickCount: 0
+    };
+    //$ Alternativa Arrow Function
+    handleClick = (event) => {
+        this.setState(prevState => ({
+            clickCount: prevState.clickCount + 1
+        }));
+    }
+
+    render() {
+        return (
+            <div>
+                <h2 onMouseOver={(event) =>
+                    console.log('Evento scatenato su', event.target)}>
+                    Event Handler
+                </h2>
                 <button onClick={this.handleClick}>
                     Cliccato {this.state.clickCount} volte!
                 </button>
@@ -31,3 +63,4 @@ class EventComponent extends Component {
 }
 
 export default EventComponent;
+ */
