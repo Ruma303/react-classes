@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class EventComponent extends Component {
     constructor(props) {
         super(props);
@@ -8,11 +9,12 @@ class EventComponent extends Component {
         //$ Binding esplicito
         this.handleClick = this.handleClick.bind(this);
     }
-    //$ Funzione tradizionale coon binding
+    //$ Funzione tradizionale con binding
     handleClick(event) {
         this.setState(prevState => ({
             clickCount: prevState.clickCount + 1
         }));
+        console.log(event.target)
     }
 
     render() {
@@ -31,14 +33,17 @@ class EventComponent extends Component {
         );
     }
 }
-export default EventComponent;
 
+export default EventComponent;
 
 /* import React, { Component } from 'react';
 
 class EventComponent extends Component {
-    state = {
-        clickCount: 0
+    constructor(props) {
+        super(props);
+        this.state = {
+            clickCount: 0
+        }
     };
     //$ Alternativa Arrow Function
     handleClick = (event) => {

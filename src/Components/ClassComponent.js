@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class ClassComponents extends Component {
     constructor(props) {
         super(props);
@@ -6,7 +7,7 @@ class ClassComponents extends Component {
             counter: 0,
             message: "ClassComponents",
         };
-        console.log("constructor");
+        console.log("Appena creato");
     }
     //$ Metodi di Montaggio
     static getDerivedStateFromProps(props, state) {
@@ -16,6 +17,7 @@ class ClassComponents extends Component {
     componentDidMount() {
         console.log("Componente montato");
         //this.setState({ counter: 10 });
+        //Chiamata API
     }
 
     //$ Metodi di Aggiornamento
